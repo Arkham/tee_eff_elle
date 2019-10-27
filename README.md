@@ -4,6 +4,10 @@ A small robot that tells you when the bus is coming. It runs on a [Raspberry
 Pi Zero](https://www.raspberrypi.org/products/raspberry-pi-zero/) and a [Scroll pHat
 HD](https://shop.pimoroni.com/products/scroll-phat-hd?variant=38472781450)
 
+## Demo
+
+![](./images/tee_eff_elle.gif)
+
 ## Getting Started
 
 You will need to export these env variables:
