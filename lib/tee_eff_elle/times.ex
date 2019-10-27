@@ -3,7 +3,7 @@ defmodule TeeEffElle.Times do
     config = TeeEffElle.Application.config()
 
     TeeEffElle.ApiClient.get_bus_times(config)
-    |> Enum.reduce(feasible(config.walking_time_in_minutes))
+    |> Enum.reduce([], feasible(config.walking_time_in_minutes))
     |> Enum.uniq()
     |> Enum.sort()
   end
