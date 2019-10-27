@@ -31,7 +31,7 @@ defmodule TeeEffElle.MixProject do
   def application do
     [
       mod: {TeeEffElle.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :httpotion]
     ]
   end
 
@@ -43,6 +43,8 @@ defmodule TeeEffElle.MixProject do
       {:shoehorn, "~> 0.6"},
       {:ring_logger, "~> 0.6"},
       {:toolshed, "~> 0.2"},
+      {:httpotion, "~> 3.1.0"},
+      {:jason, "~> 1.1"},
 
       # Dependencies for all targets except :host
       {:nerves_runtime, "~> 0.6", targets: @all_targets},
