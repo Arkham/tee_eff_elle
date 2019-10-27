@@ -35,7 +35,7 @@
   "nerves_wpa_supplicant": {:hex, :nerves_wpa_supplicant, "0.5.2", "4ec392fc08faf35f50d1070446c2e5019f6b85bd53f5716f904e3f75716d9596", [:make, :mix], [{:elixir_make, "~> 0.5", [hex: :elixir_make, repo: "hexpm", optional: false]}], "hexpm"},
   "one_dhcpd": {:hex, :one_dhcpd, "0.2.3", "753f1495a5f1b29d24b6e1f1e4e9c30c54242daae236bed6baff32027165559e", [:make, :mix], [{:elixir_make, "~> 0.6", [hex: :elixir_make, repo: "hexpm", optional: false]}], "hexpm"},
   "ring_logger": {:hex, :ring_logger, "0.8.0", "b1baddc269099b2afe2ea3a87b8e2b71e57331c0000038ae55090068aac679db", [:mix], [], "hexpm"},
-  "scroll_phat_hd_ex": {:git, "https://github.com/Arkham/scroll_phat_hd_ex.git", "5d59cbe4a3bd62db8e684f30860cf4cc405c5259", []},
+  "scroll_phat_hd_ex": {:git, "https://github.com/Arkham/scroll_phat_hd_ex.git", "93bd096faa4ea5969c31945ec7fe985ff644f231", []},
   "shoehorn": {:hex, :shoehorn, "0.6.0", "f9a1b7d6212cf18ba91c4f71c26076059df33cea4db2eb3c098bfa6673349412", [:mix], [{:distillery, "~> 2.1", [hex: :distillery, repo: "hexpm", optional: true]}], "hexpm"},
   "socket": {:hex, :socket, "0.3.13", "98a2ab20ce17f95fb512c5cadddba32b57273e0d2dba2d2e5f976c5969d0c632", [:mix], [], "hexpm"},
   "system_registry": {:hex, :system_registry, "0.8.2", "df791dc276652fcfb53be4dab823e05f8269b96ac57c26f86a67838dbc0eefe7", [:mix], [], "hexpm"},

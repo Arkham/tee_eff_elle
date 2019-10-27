@@ -1,0 +1,34 @@
+defmodule TeeEffElle.Server do
+  @moduledoc false
+  @update_interval 60_000
+  @render_interval 500
+
+  use GenServer
+
+  def start_link(_) do
+    GenServer.start(__MODULE__, [], name: __MODULE__)
+  end
+
+  @impl true
+  def init(_) do
+    times = TeeEffElle.Times.get_feasible_times()
+    Process.send_after(self(), :update_times, @update_interval)
+    Process.send_after(self(), :display_times, @render_interval)
+    {:ok, %{last_times: times}}
+  end
+
+  @impl true
+  def handle_info(:update_times, _state) do
+    times = TeeEffElle.Times.get_feasible_times()
+    Process.send_after(self(), :update_times, @update_interval)
+    {:noreply, %{last_times: times}}
+  end
+
+  @impl true
+  def handle_info(:display_times, state) do
+    result = TeeEffElle.Times.display_times(state.last_times)
+    ScrollPhatHdEx.Server.scroll_string(result)
+    Process.send_after(self(), :display_times, @render_interval)
+    {:noreply, state}
+  end
+end

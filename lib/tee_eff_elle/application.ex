@@ -34,7 +34,8 @@ defmodule TeeEffElle.Application do
       # Children for all targets except host
       # Starts a worker by calling: TeeEffElle.Worker.start_link(arg)
       # {TeeEffElle.Worker, arg},
-      {ScrollPhatHdEx.Server, []}
+      {ScrollPhatHdEx.Server, []},
+      {TeeEffElle.Server, []}
     ]
   end
 
