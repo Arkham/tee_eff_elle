@@ -1,5 +1,7 @@
 defmodule TeeEffElle.Server do
   @moduledoc false
+
+  @boot_delay 1_000
   @update_interval 60_000
   @render_interval 500
 
@@ -11,10 +13,9 @@ defmodule TeeEffElle.Server do
 
   @impl true
   def init(_) do
-    times = TeeEffElle.Times.get_feasible_times()
-    Process.send_after(self(), :update_times, @update_interval)
-    Process.send_after(self(), :display_times, @render_interval)
-    {:ok, %{last_times: times}}
+    Process.send_after(self(), :update_times, @boot_delay)
+    Process.send_after(self(), :display_times, @boot_delay)
+    {:ok, %{last_times: []}}
   end
 
   @impl true
@@ -26,9 +27,16 @@ defmodule TeeEffElle.Server do
 
   @impl true
   def handle_info(:display_times, state) do
-    result = TeeEffElle.Times.display_times(state.last_times)
-    ScrollPhatHdEx.Server.scroll_string(result)
+    scroll_times(state.last_times)
     Process.send_after(self(), :display_times, @render_interval)
     {:noreply, state}
+  end
+
+  defp scroll_times([]), do: :ok
+
+  defp scroll_times(times) do
+    times
+    |> TeeEffElle.Times.display_times()
+    |> ScrollPhatHdEx.Server.scroll_string()
   end
 end
