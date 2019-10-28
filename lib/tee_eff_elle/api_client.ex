@@ -7,16 +7,17 @@ defmodule TeeEffElle.ApiClient do
         tfl_app_id: tfl_app_id,
         tfl_app_key: tfl_app_key
       }) do
-    with %{body: body} <-
-           HTTPotion.get("https://api.tfl.gov.uk/StopPoint/#{bus_stop}/Arrivals",
-             query: %{
-               app_id: tfl_app_id,
-               app_key: tfl_app_key
-             }
-           ) do
-      process_response(body, bus_line)
-    else
-      []
+    response =
+      HTTPotion.get("https://api.tfl.gov.uk/StopPoint/#{bus_stop}/Arrivals",
+        query: %{
+          app_id: tfl_app_id,
+          app_key: tfl_app_key
+        }
+      )
+
+    case response do
+      %{body: body} -> process_response(body, bus_line)
+      _ -> []
     end
   end
 
