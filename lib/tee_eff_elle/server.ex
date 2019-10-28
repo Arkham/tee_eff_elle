@@ -8,7 +8,7 @@ defmodule TeeEffElle.Server do
   use GenServer
 
   def start_link(_) do
-    GenServer.start(__MODULE__, [], name: __MODULE__)
+    GenServer.start_link(__MODULE__, [], name: __MODULE__)
   end
 
   @impl true
