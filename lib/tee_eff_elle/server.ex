@@ -32,6 +32,12 @@ defmodule TeeEffElle.Server do
     {:noreply, state}
   end
 
+  @impl true
+  def handle_info(message, state) do
+    IO.puts("Received message #{inspect(message)}")
+    {:noreply, state}
+  end
+
   defp scroll_times([]), do: :ok
 
   defp scroll_times(times) do
